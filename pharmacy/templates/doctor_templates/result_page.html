@@ -1,0 +1,40 @@
+{% extends 'doctor_templates/base_template.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+    <h5>Consult Result</h5>
+{% endblock page_title %}
+
+{% block link %}
+    <li class="breadcrumb-item active"><a href="{% url 'manage_patient_doctor' %}">All Patients</a></li>
+    <li class="breadcrumb-item active">Consult Result</li>
+{% endblock link %}
+
+{% block main_content %}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Consult Result</h3>
+                </div>
+                <div class="card-body">
+                    <h4>ORDONNANCE</h4>
+                    <ol>
+                        <li>Diagnostic : {{ data_ordonnance.DIAGNOSTIC_MAL }}</li>
+                        <li>Liste :</li>
+                        <ul>
+                            <li>{{ data_ordonnance.MED1 }} - {{ data_ordonnance.DOS1 }} - {{ data_ordonnance.POS1 }} - {{ data_ordonnance.DUREE1 }}</li>
+                            <li>{{ data_ordonnance.MED2 }} - {{ data_ordonnance.DOS2 }} - {{ data_ordonnance.POS2 }} - {{ data_ordonnance.DUREE2 }}</li>
+                            <li>{{ data_ordonnance.MED3 }} - {{ data_ordonnance.DOS3 }} - {{ data_ordonnance.POS3 }} - {{ data_ordonnance.DUREE3 }}</li>
+                        </ul>
+                        <li>Instructions pour les soins : {{ data_ordonnance.INSTRUCTIONS }}</li>
+                        <li>Plan de suivi : {{ data_ordonnance.PLAN_SUIVI }}</li>
+                        <li>Informations additionnelles : {{ data_ordonnance.INFO_ADD }}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main_content %}
